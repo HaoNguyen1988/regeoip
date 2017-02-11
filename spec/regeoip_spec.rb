@@ -20,5 +20,10 @@ describe Regeoip do
     it 'resolve for nil' do
       expect(Regeoip.resolve_country_code2(nil)).to be_nil
     end
+
+    it 'resolve for IPAddr' do
+      ip = IPAddr.new("113.190.151.20")
+      expect(Regeoip.resolve_country_code2(ip)).to eq("VN")
+    end
   end
 end

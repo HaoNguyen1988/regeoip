@@ -7,7 +7,7 @@ module Regeoip
     if ip.to_s =~ /^[0-9.]+$/
       geoipv4.country(ip)
     else
-      geoipv6.country(ip)
+      geoipv6.country(ip.to_s)
     end
   end
 

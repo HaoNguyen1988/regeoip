@@ -25,5 +25,10 @@ describe Regeoip do
       ip = IPAddr.new("113.190.151.20")
       expect(Regeoip.resolve_country_code2(ip)).to eq("VN")
     end
+
+    it 'resolve for IPAddr v6' do
+      ip = IPAddr.new("2001:0e68:4417:1282:048a:6015:2709:e2e1")
+      expect(Regeoip.resolve_country_code2(ip)).to eq("MY")
+    end
   end
 end

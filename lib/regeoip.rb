@@ -3,6 +3,7 @@ require 'geoip'
 
 module Regeoip
   def self.resolve_country(ip)
+    return nil if ip.nil?
     if ip =~ /^[0-9.]+$/
       geoipv4.country(ip)
     else

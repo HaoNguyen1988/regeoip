@@ -24,8 +24,11 @@ Or install it yourself as:
 ## Usage
 
 Get country data:
-    Regeoip.resolve_country(ip)`
+
+    Regeoip.resolve_country(ip)
+
 Get country code:
+
     Regeoip.resolve_country_code2(ip)
 
 ## Development

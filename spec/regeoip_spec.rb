@@ -16,5 +16,9 @@ describe Regeoip do
       ip = "2405:4800:607f:0c34:9033:04b8:fbe3:76c6"
       expect(Regeoip.resolve_country_code2(ip)).to eq("VN")
     end
+
+    it 'resolve for nil' do
+      expect(Regeoip.resolve_country_code2(nil)).to be_nil
+    end
   end
 end

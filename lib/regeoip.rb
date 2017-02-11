@@ -12,7 +12,11 @@ module Regeoip
   end
 
   def self.resolve_country_code2(ip)
-    resolve_country(ip).country_code2
+    if (country = resolve_country(ip))
+      country.country_code2
+    else
+      nil
+    end
   end
 
   private

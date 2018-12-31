@@ -19,6 +19,15 @@ module Regeoip
     end
   end
 
+  def self.resolve_city(ip)
+    return nil if ip.nil?
+    if ip.to_s =~ /^[0-9.]+$/
+      city_geoipv4.city(ip)
+    else
+      city_geoipv6.city(ip.to_s)
+    end
+  end
+
   private
 
   def self.geoipv4
@@ -27,6 +36,14 @@ module Regeoip
 
   def self.geoipv6
     @geoipv6 ||= GeoIP.new(local_path('GeoIPv6.dat'))
+  end
+
+  def self.city_geoipv4
+    @city_geoipv4 ||= GeoIP.new(local_path('GeoLiteCity.dat'))
+  end
+
+  def self.city_geoipv6
+    @city_geoipv6 ||= GeoIP.new(local_path('GeoLiteCityv6.dat'))
   end
 
   def self.local_path(file)
